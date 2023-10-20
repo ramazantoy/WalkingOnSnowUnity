@@ -1,0 +1,9 @@
+namespace LeonBrave{
+public struct #SCRIPTNAME#
+{
+    public #SCRIPTNAME#(string s)
+	{
+	
+	}
+}
+}

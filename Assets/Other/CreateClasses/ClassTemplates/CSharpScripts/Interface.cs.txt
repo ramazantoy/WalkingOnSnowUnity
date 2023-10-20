@@ -1,0 +1,6 @@
+namespace LeonBrave{
+public interface #SCRIPTNAME#
+{
+    
+}
+}

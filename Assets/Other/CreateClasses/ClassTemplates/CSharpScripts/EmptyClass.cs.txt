@@ -1,0 +1,11 @@
+
+namespace LeonBrave{
+[System.Serializable]
+public class #SCRIPTNAME#
+{
+    public #SCRIPTNAME#()
+	{
+	
+	}
+}
+}
