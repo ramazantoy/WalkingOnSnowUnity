@@ -25,7 +25,7 @@ Shader "Snow Height Map Update"
 
                 float4 previousColor = tex2D(_SelfTexture2D, IN.localTexcoord.xy);
                 
-                float4 drawColor = smoothstep(.02,.1,distance(IN.localTexcoord.xy,_DrawPosition));
+                float4 drawColor = smoothstep(.002,.01,distance(IN.localTexcoord.xy,_DrawPosition));
                 
                 return min(previousColor,drawColor);
             }

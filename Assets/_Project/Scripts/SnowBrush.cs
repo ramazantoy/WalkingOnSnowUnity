@@ -18,6 +18,12 @@ public class SnowBrush : MonoBehaviour
         SnowHeightMap.Initialize();
         _mainCamera=Camera.main;
     }
+    
+    public void HeightMapUpdate(Vector4 hitCordinate)
+    {
+        HeigtMapUpdate.SetVector(DrawPosition,hitCordinate);
+    }
+
 
     private void Update()
     {
@@ -29,11 +35,13 @@ public class SnowBrush : MonoBehaviour
             if (Physics.Raycast(ray, out RaycastHit raycastHit))
             {
                 Vector2 hitCordinate = raycastHit.textureCoord;
-                Debug.Log(hitCordinate);
+                Debug.Log(raycastHit.collider.name+" "+hitCordinate);
+               
                 HeigtMapUpdate.SetVector(DrawPosition,hitCordinate);
             }
         }
     }
+
 
     private void OnApplicationQuit()
     {
