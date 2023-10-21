@@ -25,22 +25,7 @@ public class SnowBrush : MonoBehaviour
     }
 
 
-    private void Update()
-    {
-        if (Input.GetMouseButton(0))
-        {
-            Ray ray = _mainCamera.ScreenPointToRay(Input.mousePosition);
-            
-            Debug.DrawRay(_mainCamera.transform.position, ray.direction * 10f, Color.red);
-            if (Physics.Raycast(ray, out RaycastHit raycastHit))
-            {
-                Vector2 hitCordinate = raycastHit.textureCoord;
-                Debug.Log(raycastHit.collider.name+" "+hitCordinate);
-               
-                HeigtMapUpdate.SetVector(DrawPosition,hitCordinate);
-            }
-        }
-    }
+
 
 
     private void OnApplicationQuit()
