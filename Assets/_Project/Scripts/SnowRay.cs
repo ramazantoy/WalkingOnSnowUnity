@@ -5,31 +5,31 @@ using UnityEngine;
 
 namespace LeonBrave
 {
-
     public class SnowRay : MonoBehaviour
     {
         [SerializeField] private SnowBrush _snowBrush;
-
         [SerializeField] private LayerMask _snowPlaneLayer;
+        [SerializeField] private float distanceThreshold = 0.01f;
 
-
+        private Vector2 lastHitCoordinate = Vector2.one * -1; 
 
         private void FixedUpdate()
         {
-            Vector3 rayOrigin = transform.position; // Ray'ı kendi pozisyonunuzdan başlatın.
-            Ray ray = new Ray(rayOrigin, Vector3.down); // Aşağı doğru bir ışın oluşturun.
+            Vector3 rayOrigin = transform.position; 
+            Ray ray = new Ray(rayOrigin, Vector3.down); 
 
-            Debug.DrawRay(rayOrigin, Vector3.down * 30f, Color.red); // Debug ile ışının yönünü görselleştirin.
-
-            if (Physics.Raycast(ray, out RaycastHit raycastHit, Mathf.Infinity, _snowPlaneLayer))
+            Debug.DrawRay(rayOrigin, Vector3.down * 3f, Color.red); 
+            if (Physics.Raycast(ray, out RaycastHit raycastHit, 3f, _snowPlaneLayer))
             {
-                
                 Vector2 hitCoordinate = raycastHit.textureCoord;
-                _snowBrush.HeightMapUpdate(hitCoordinate);
-              
+
+    
+                if(Vector2.Distance(lastHitCoordinate, hitCoordinate) > distanceThreshold)
+                {
+                    _snowBrush.HeightMapUpdate(hitCoordinate);
+                    lastHitCoordinate = hitCoordinate;
+                }
             }
         }
     }
 }
-
-
