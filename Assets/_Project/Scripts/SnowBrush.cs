@@ -19,12 +19,13 @@ public class SnowBrush : MonoBehaviour
     [SerializeField]
     private float _removeTime;
 
-    private Camera _mainCamera;
+    [SerializeField]
+    private int _startRemoveCount;
+    
 
     private void Start()
     {
         SnowHeightMap.Initialize();
-        _mainCamera=Camera.main;
     }
     
     public void HeightMapUpdate(Vector4 hitCordinate)
@@ -41,7 +42,7 @@ public class SnowBrush : MonoBehaviour
     
     private void Update()
     {
-        if (_hitCordinate.Count <= 5)
+        if (_hitCordinate.Count <= _startRemoveCount)
         {
             return;
         }
