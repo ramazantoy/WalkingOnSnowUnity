@@ -33,5 +33,5 @@ Material:
     - _ResetArea: 0
     m_Colors:
     - _DrawPosition: {r: -1, g: -1, b: 0, a: 0}
-    - _RemovePosition: {r: 0.115161344, g: 0.45034283, b: 0, a: 0}
+    - _RemovePosition: {r: 0.810098, g: 0.3476657, b: 0, a: 0}
   m_BuildTextureStacks: []
